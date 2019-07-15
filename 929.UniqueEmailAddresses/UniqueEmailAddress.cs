@@ -18,7 +18,7 @@ namespace _929.UniqueEmailAddresses
                 return 0;
             }
 
-            var normalizedEmails = emails.Select(email => NormalizeEmail(email));
+            var normalizedEmails = emails.Select(NormalizeEmail);
             var uniqueEmails = new List<string>();
             
             foreach (var email in normalizedEmails)
@@ -32,7 +32,7 @@ namespace _929.UniqueEmailAddresses
             return uniqueEmails.Count();
         }
 
-        public string NormalizeEmail(string email)
+        private string NormalizeEmail(string email)
         {
             var splittedEmail = email.Split('@');
             string localName = splittedEmail[0];

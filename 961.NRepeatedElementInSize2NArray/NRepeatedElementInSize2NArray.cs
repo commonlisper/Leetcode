@@ -19,7 +19,7 @@ namespace _961.NRepeatedElementInSize2NArray
             }
 
             var counted = A.Select(element => KeyValuePair.Create(element, A.Count(el => el == element)));
-            var result = counted.Where(keyValue => keyValue.Value == A.Length / 2).First();
+            var result = counted.First(keyValue => keyValue.Value == A.Length / 2);
 
             return result.Key;
         }
